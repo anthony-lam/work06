@@ -1,11 +1,28 @@
 #include <strings.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
 struct Breakfast{ char *item; double  price; int calories; };
 
+
+
 struct Breakfast create()
 {
- 	struct Breakfast menu = {"eggs", 1.99, 300};
+  srand(time(NULL));
+  struct Breakfast menu;
+  int num = rand()%10;
+  if (num<4){
+        struct Breakfast menu = {"eggs", 1.99, 300};
+  }
+  else{
+    if (num<7){
+      struct Breakfast menu = {"bacon", 2.99, 600};
+    }
+    else{
+      struct Breakfast menu = {"pancakes", 5.99, 900};
+    }
+  }
 	return menu;
 }
 
